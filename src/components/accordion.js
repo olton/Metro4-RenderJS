@@ -12,7 +12,6 @@ export const accordion = (children = '', options = {}) => new Accordion(children
 export class AccordionFrame extends Div {
     constructor(title = '', children = '', options = {}) {
         const className = addRequiredClasses('frame', options.className)
-        console.log(className)
         super(children, {...options, className})
         this.title = title
     }
