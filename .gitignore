@@ -1,0 +1,7 @@
+.idea
+node_modules
+.cache
+dist
+.rollup
+.html
+temp
