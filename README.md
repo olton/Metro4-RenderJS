@@ -47,3 +47,51 @@ const model = [
 
 render(model, document.querySelector("#app"))
 ```
+
+### Browser mode
+Also, you can use `render` directly
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="metro-all.css">
+</head>
+<body>
+    <div id="app"></div>
+
+    <script src="metro.js"></script>
+    <script src="render.js"></script>
+    <script src="metro4-for-render.js"></script>
+    <script>
+        (function(){
+            html.registerGlobal();
+            metroHtml.registerGlobal();
+
+            const model = [
+                containerFluid(
+                        container([
+                            h1("Metro 4 for RenderJS", {className: 'text-center'}),
+                            accordion([
+                                accordionFrame("Frame1", [
+                                    p('Paragraph 1'),
+                                    p('Paragraph 2'),
+                                    p('Paragraph 3'),
+                                ]),
+                                accordionFrame("Frame2", "lorem2", {className: "active"}),
+                                accordionFrame("Frame3", "lorem3"),
+                            ])
+                        ])
+                )
+            ]
+
+            render(model, document.querySelector('#app'));
+
+            html.restoreGlobal();
+            metroHtml.restoreGlobal();
+        })()
+    </script>
+</body>
+</html>
+```
