@@ -1,8 +1,9 @@
-import {addRequiredClasses, addRequiredRole, Div} from "@olton/renderjs"
+import {addClasses} from "../helpers";
+import {Div} from "@olton/renderjs";
 
 export class Container extends Div {
     constructor(type = '', children = '', options = {}) {
-        const className = addRequiredClasses(type, options.className)
+        const className = addClasses(type, options.className)
         super(children, {...options, className})
     }
 }

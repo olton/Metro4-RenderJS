@@ -88,11 +88,15 @@
     var required = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
     var source = arguments.length > 1 ? arguments[1] : undefined;
 
-    if (!source) {
-      return required;
+    if (typeof required === "string") {
+      required = required.split(" ");
     }
 
-    return new Set([...source, ...required]);
+    if (!source) {
+      return required.join(" ");
+    }
+
+    return [...new Set([...source.split(" "), ...required])].join(" ");
   }
 
   var universalAttributes = ["accesskey", "contenteditable", "contextmenu", "dir", "id", "lang", "spellcheck", "tabindex", "title"];
@@ -215,7 +219,7 @@
       var children = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
       var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
-      if (typeof children === 'object' && !Array.isArray(children) && !(children instanceof BaseElement)) {
+      if (typeof children === 'object' && !Array.isArray(children) && !children.draw) {
         options = children;
         children = '';
       }

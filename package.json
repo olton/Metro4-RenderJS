@@ -45,6 +45,6 @@
     "styles": "^0.2.1"
   },
   "dependencies": {
-    "@olton/renderjs": "^0.1.8"
+    "@olton/renderjs": "^0.1.11"
   }
 }

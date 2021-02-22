@@ -1,9 +1,9 @@
-import {addRequiredClasses, Div} from "@olton/renderjs"
-import {addRequiredRole} from "@olton/renderjs"
+import {Div} from "@olton/renderjs"
+import {addRole, addClasses} from "../helpers";
 
 export class Accordion extends Div {
     constructor(children = '', options = {}) {
-        super(children, addRequiredRole('accordion', options))
+        super(children, addRole('accordion', options))
     }
 }
 
@@ -11,7 +11,7 @@ export const accordion = (children = '', options = {}) => new Accordion(children
 
 export class AccordionFrame extends Div {
     constructor(title = '', children = '', options = {}) {
-        const className = addRequiredClasses('frame', options.className)
+        const className = addClasses('frame', options.className)
         super(children, {...options, className})
         this.title = title
     }
@@ -26,4 +26,5 @@ export class AccordionFrame extends Div {
     }
 }
 
-export const accordionFrame = (title = '', children = '', options = {}) => new AccordionFrame(title, children, options)
+export const accordionFrame = (title, children, options) => new AccordionFrame(title, children, options)
+
