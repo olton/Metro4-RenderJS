@@ -47,7 +47,6 @@ const model = [
                     multiActionButton([
                         actionButton(span({className: "mif-plus"}), {
                             className: "rotate-minus success",
-
                             events: {
                                 onclick: "$(this).toggleClass('active')"
                             }
