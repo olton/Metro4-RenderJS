@@ -4,11 +4,12 @@ import {
     accordionFrame,
     actionButton,
     actionButtonAction,
+    actionButtonActions,
     activity,
     activityBars,
     appBar,
     appBarBrand,
-    appBarBrand2, appBarContainer,
+    appBarContainer,
     appBarItem,
     appBarMenu,
     appBarMenuItem,
@@ -19,7 +20,6 @@ import {
     multiActionButton,
     row
 } from "../src"
-import {actionButtonActions} from "../src/components/action-button";
 
 const model = [
     containerFluid(
