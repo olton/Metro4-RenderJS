@@ -45,18 +45,3 @@ export class AppBarMenu extends List {
 
 export const appBarMenu = (children, options) => new AppBarMenu(children, options)
 
-export class AppBarMenuItem extends ListItem {
-    constructor(href = '', children = '', options = {}) {
-        super(children, options)
-        this.href = href
-    }
-
-    template(content) {
-        return `
-            <${this.tag}><a href="${this.href}">${content}</a></${this.tag}>
-        `
-    }
-}
-
-export const appBarMenuItem = (href, children, options) => new AppBarMenuItem(href, children, options)
-

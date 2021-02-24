@@ -1,4 +1,4 @@
-import {div, h1, h2, li, p, render, span, ul} from "@olton/renderjs"
+import {a, div, h1, h2, p, render, span} from "@olton/renderjs"
 import {
     accordion,
     accordionFrame,
@@ -12,13 +12,13 @@ import {
     appBarContainer,
     appBarItem,
     appBarMenu,
-    appBarMenuItem,
+    menuItem,
     cell,
     container,
     containerFluid,
     grid,
     multiActionButton,
-    row
+    row, dropdownMenu
 } from "../src"
 
 const model = [
@@ -52,10 +52,10 @@ const model = [
                             }
                         }),
                         actionButtonActions([
-                            actionButtonAction('#', span({className: "mif-user-plus"})),
-                            actionButtonAction('#', span({className: "mif-library"})),
-                            actionButtonAction('#', span({className: "mif-alarm"})),
-                            actionButtonAction('#', span({className: "mif-lock"})),
+                            menuItem('#', span({className: "mif-user-plus"})),
+                            menuItem('#', span({className: "mif-library"})),
+                            menuItem('#', span({className: "mif-alarm"})),
+                            menuItem('#', span({className: "mif-lock"})),
                         ], {className: "drop-right"})
                     ])
                 ], {className: "mt-10"}
@@ -91,10 +91,18 @@ const model = [
                         span("Metro 4 for RenderJS", {className: "enlarge-1"})
                     ], {href: "#"}),
                     appBarMenu([
-                        appBarMenuItem("#", "Home"),
-                        appBarMenuItem("#", "Products"),
-                        appBarMenuItem("#", "Blog"),
-                        appBarMenuItem("#", "Contacts"),
+                        menuItem("#", "Home"),
+                        menuItem("#", [
+                            a("Products", {className: "dropdown-toggle"}),
+                            dropdownMenu([
+                                menuItem("#", "Item 1"),
+                                menuItem("#", "Item 2"),
+                                menuItem("#", "Item 3"),
+                                menuItem("#", "Item 4"),
+                            ])
+                        ]),
+                        menuItem("#", "Blog"),
+                        menuItem("#", "Contacts"),
                     ]),
                     appBarContainer([
                         appBarItem("Sin In", {href: "#"}),

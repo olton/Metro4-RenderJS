@@ -35,20 +35,3 @@ export class ActionButtonActions extends List {
 }
 
 export const actionButtonActions = (children = '', options = {}) => new ActionButtonActions('ul', children, options)
-
-export class ActionButtonAction extends ListItem {
-    constructor(href = '#', children = '', options = {}) {
-        super(children, options)
-        this.href = href
-    }
-
-    template(content) {
-        return `
-            <${this.tag} ${this.attributes().join(" ")} ${this.events}>
-                <a href="${this.href}">${content}</a>            
-            </${this.tag}>
-        `
-    }
-}
-
-export const actionButtonAction = (href = '#', children = '', options = {}) => new ActionButtonAction(href, children, options)
